@@ -12,25 +12,29 @@ class Counter extends Component {
     return classes;
   }
 
+  handleIncrement = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
   render() {
     return (
       <>
-        <span className={this.getClassnames()} style={this.styles}>
-          {this.formatCount()}
-        </span>
-        <ul>
-          {this.state.tags.map((tag) => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
-        <button className="btn btn-secondary btn-sm">Increment</button>
+        <span className={this.getClassnames()}>{this.formatCount()}</span>
+        {this.state.tags.map((tag) => (
+          <li>{tag}</li>
+        ))}
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
       </>
     );
   }
-
   formatCount() {
     const { count } = this.state;
-    return count === 0 ? <h1>zero</h1> : count;
+    return count === 0 ? <h4>zero</h4> : count;
   }
 }
 
