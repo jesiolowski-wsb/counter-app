@@ -22,6 +22,7 @@ class Counter extends Component {
         <span className={this.getClassnames()} style={this.styles}>
           {this.state.value}
         </span>
+
         <button
           onClick={this.handleIncrement}
           className="btn btn-secondary btn-sm"
@@ -37,6 +38,7 @@ class Counter extends Component {
       </>
     );
   }
+
 }
 
 export default Counter;
